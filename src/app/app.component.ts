@@ -1,3 +1,4 @@
+import { ScrollDispatcher } from '@angular/cdk/overlay';
 import { Component, VERSION } from '@angular/core';
 
 @Component({
@@ -6,5 +7,7 @@ import { Component, VERSION } from '@angular/core';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular ' + VERSION.major;
+  constructor(private scrollDispatcher: ScrollDispatcher) {
+    scrollDispatcher.scrolled().subscribe(console.log);
+  }
 }
